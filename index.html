@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Lumina AI — Light Up Your Ideas</title>
+    <meta name="description" content="Lumina AI — Light Up Your Ideas. Created by Lumina Studio." />
+    <meta name="theme-color" content="#f8f9fa" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // Apply saved theme before first paint.
+      try {
+        var s = JSON.parse(localStorage.getItem('lumina_settings') || '{}');
+        if (s.theme === 'dark') document.documentElement.classList.add('dark');
+      } catch (e) {}
+    </script>
+    <style>
+      #boot{position:fixed;inset:0;z-index:9999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity .45s ease}
+      #boot.boot-hide{opacity:0;pointer-events:none}
+      #boot img{width:min(80vw,520px);height:auto;display:block}
+      #boot .bar{width:min(46vw,200px);height:3px;border-radius:3px;background:#eceff4;overflow:hidden}
+      #boot .bar i{display:block;height:100%;width:40%;border-radius:3px;background:linear-gradient(90deg,#8ab4f8,#c58af9);animation:bootslide 1.2s ease-in-out infinite}
+      #boot p{margin:0;font:500 14px/1 'Albert Sans',system-ui,sans-serif;color:#80868b;letter-spacing:.01em}
+      @keyframes bootslide{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}
+      @media (prefers-reduced-motion:reduce){#boot .bar i{animation:none;width:100%}}
+    </style>
+  </head>
+  <body>
+    <div id="boot" role="status" aria-label="Loading Lumina AI">
+      <img src="/icons/logo-wordmark.png" alt="Lumina AI" />
+      <div class="bar"><i></i></div>
+      <p>Light Up Your Ideas</p>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
